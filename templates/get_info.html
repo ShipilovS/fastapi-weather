@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block icon %}
+    <link rel="icon" href="/static/icon/{{request.icon}}.png/" sizes="32x32" />
+    {% endblock icon %}
+    <title>{% block title %}Информация{% endblock title %}</title>
+</head>
+
+<body>
+
+
+
+    {% block one %}
+
+    {% if request.exception == True %}
+
+    <div class="p-1 bg-light rounded-3 text-center">
+        <table class="table table-bordered mt-5 ">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Место</th>
+                    <th scope="col">Температура</th>
+                    <th scope="col">Давление</th>
+                    <th scope="col">Влажность</th>
+                    <th scope="col">Скорость ветра</th>
+                    <th scope="col">Время запроса</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{request.city}}</td>
+                    <td>{{request.temp}}°</td>
+                    <td>{{request.pressure}} мм. рт. ст.</td>
+                    <td>{{request.humidity}}%</td>
+                    <td>{{request.speed}} м/c</td>
+                    <td>{{request.date_update}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    {% endif %}
+    <div class="p-1 bg-light rounded-3 text-center">
+        <h5>{{request.text}}</h5>
+        <a class="btn btn-primary btn-lg my-1" href="/">Повторить</a>
+    </div>
+    {% endblock %}
+
+</body>
+
+</html>
