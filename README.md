@@ -1,0 +1,1 @@
+![alt text](https://github.com/ShipilovS/fastapi-weather/blob/master/info.gif)
