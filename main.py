@@ -5,8 +5,13 @@ from fastapi.templating import Jinja2Templates # пакет для шаблон�
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, RedirectResponse
 import datetime
+from dotenv import load_dotenv
+import os
 
-token = 'YOUR_TOKEN_API'
+load_dotenv()
+
+
+token = os.environ.get('TOKEN') # Your api token
 app = FastAPI(title="Example")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
